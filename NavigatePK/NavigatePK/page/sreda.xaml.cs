@@ -68,7 +68,7 @@ namespace NavigatePK.page
 
             if (e.SelectedItemIndex == 6)
             {
-                vremja = "21:00";
+                vremja = "22:00";
             }
 
             await DisplayAlert(text, vremja, "Продолжить");
