@@ -14,6 +14,7 @@ namespace NavigatePK.page
     {
         public vtornik()
         {
+            Title = "Вторник";
             StackLayout vtornikv = new StackLayout();
             string[] taska = new string[] { "Tõusen", "Söön ",  "Tegelen spordiga", "Söön", "Läks koolis", "Söön" };
 

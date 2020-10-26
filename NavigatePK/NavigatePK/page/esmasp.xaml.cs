@@ -15,6 +15,7 @@ namespace NavigatePK.page
     {
         public esmasp()
         {
+            Title = "Понедельник";
             string[] tasks = new string[] { "Tõusen püsti", "Söön putru", "Jalutan", "Lähen lõunale", "Tegelen spordiga", "Söön", "Magan" };
 
             ListView list = new ListView {BackgroundColor = Color.WhiteSmoke, SeparatorColor = Color.Gray, RowHeight = 50,  };

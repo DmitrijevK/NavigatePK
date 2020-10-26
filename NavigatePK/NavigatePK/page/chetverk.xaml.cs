@@ -14,7 +14,7 @@ namespace NavigatePK.page
     {
         public chetverk()
         {
-
+            Title = "Четверг";
             string[] tasks = new string[] { "Tõusen püsti", "Söön putru", "Jalutan", "Lähen lõunale", "Tegelen spordiga", "Söön", "Magan" };
 
             ListView list = new ListView { BackgroundColor = Color.WhiteSmoke, SeparatorColor = Color.Gray, RowHeight = 50, };
@@ -28,20 +28,9 @@ namespace NavigatePK.page
             Button bb = new Button { Text = "Назад" };
             bb.Clicked += Bb_Clicked;
 
-            Content = new StackLayout { Children = { list } };
+            Content = new StackLayout { Children = { list, bbk,bb } };
 
-            InitializeComponent();
 
-        }
-
-        private async void Bbk_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new pjatnitsa());
-        }
-
-        private async void Bb_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
         }
 
         string vremja;
@@ -84,6 +73,16 @@ namespace NavigatePK.page
             }
 
             await DisplayAlert(text, vremja, "Продолжить");
+        }
+
+        private async void Bbk_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new pjatnitsa());
+        }
+
+        private async void Bb_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }
