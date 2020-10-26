@@ -17,11 +17,19 @@ namespace NavigatePK.page
         {
             string[] tasks = new string[] { "Tõusen püsti", "Söön putru", "Jalutan", "Lähen lõunale", "Tegelen spordiga", "Söön", "Magan" };
 
-            ListView list = new ListView();
+            ListView list = new ListView {BackgroundColor = Color.WhiteSmoke, SeparatorColor = Color.Gray, RowHeight = 50,  };
             // определяем источник данных
             list.ItemsSource = tasks;
+
+            Button bb = new Button { Text = "Назад" };
+            bb.Clicked += Bb_Clicked;
+
+            Button bbk = new Button { Text = "Вперед" };
+            bbk.Clicked += Bbk_Clicked;
+
+
             list.ItemSelected += List_ItemSelected;
-            Content = new StackLayout { Children = { list } };
+            Content = new StackLayout { Children = { list, bb, bbk } };
            
 
         }
@@ -74,14 +82,13 @@ namespace NavigatePK.page
             bb.Clicked += Bb_Clicked;
             bubi.Children.Add(bb);
 
-            Button bbk = new Button { Text = "Назад" };
+            Button bbk = new Button { Text = "Вперед" };
             bbk.Clicked += Bbk_Clicked;
             bubi.Children.Add(bbk);
         }
 
         private async void Bbk_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
             await Navigation.PushAsync(new vtornik());
         }
 

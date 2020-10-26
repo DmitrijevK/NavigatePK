@@ -8,9 +8,11 @@ namespace NavigatePK
     {
         public App()
         {
+
+
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage()) {BarBackgroundColor = Color.CornflowerBlue };
         }
 
         protected override void OnStart()

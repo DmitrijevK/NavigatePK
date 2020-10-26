@@ -14,88 +14,74 @@ namespace NavigatePK
         public MainPage()
         {
             StackLayout bib = new StackLayout();
+            ScrollView scrollView = new ScrollView { Content = bib };   
 
-            Button esmBtn = new Button { Text= "Пн." };
-            esmBtn.Clicked += new EventHandler(Btn_clik);
+            ImageButton esmBtn = new ImageButton { Source= "pn.png" };
             bib.Children.Add(esmBtn);
-            Button teisBtn = new Button { Text = "Вт." };
-            teisBtn.Clicked += new EventHandler(Btn_clik);
+            esmBtn.Clicked += EsmBtn_Clicked;
+            ImageButton teisBtn = new ImageButton { Source = "vv.png" };
             bib.Children.Add(teisBtn);
-            Button kolmBtn = new Button { Text = "Ср." };
-            kolmBtn.Clicked += new EventHandler(Btn_clik);
+            teisBtn.Clicked += TeisBtn_Clicked;
+            ImageButton kolmBtn = new ImageButton { Source = "aa.png" };
             bib.Children.Add(kolmBtn);
-            Button neljBtn = new Button { Text = "Чт." };
-            neljBtn.Clicked += new EventHandler(Btn_clik);
+            kolmBtn.Clicked += KolmBtn_Clicked;
+            ImageButton neljBtn = new ImageButton { Source = "dd.png" };
             bib.Children.Add(neljBtn);
-            Button redBtn = new Button { Text = "Пт." };
-            redBtn.Clicked += new EventHandler(Btn_clik);
+            neljBtn.Clicked += NeljBtn_Clicked;
+            ImageButton redBtn = new ImageButton { Source = "xx.png" };
             bib.Children.Add(redBtn);
-            Button sbBtn = new Button { Text = "Сб." };
-            sbBtn.Clicked += new EventHandler(Btn_clik);
+            redBtn.Clicked += RedBtn_Clicked;
+            ImageButton sbBtn = new ImageButton { Source = "ps.png" };
             bib.Children.Add(sbBtn);
-            Button vsmBtn = new Button { Text = "Вс." };
-            vsmBtn.Clicked += new EventHandler(Btn_clik);
+            sbBtn.Clicked += SbBtn_Clicked;
+            ImageButton vsmBtn = new ImageButton { Source = "ff.png" };
             bib.Children.Add(vsmBtn);
+            vsmBtn.Clicked += VsmBtn_Clicked;
 
-            Content = bib;
+            InitializeComponent();
+            Content = scrollView;
         }
 
-        private async void Btn_clik(object sender, EventArgs e)
+        private async void VsmBtn_Clicked(object sender, EventArgs e)
         {
-            var btn = (Button)sender;
-            switch (btn.Text)
-            {
-                case "Пн.":
-                    await Navigation.PopAsync();
-                    await Navigation.PushAsync(new esmasp());
-                    break;
-            }
-            switch (btn.Text)
-            {
-                case "Вт.":
-                    await Navigation.PopAsync();
-                    await Navigation.PushAsync(new vtornik());
-                    break;
-            }
-            switch (btn.Text)
-            {
-                case "Ср.":
-                    await Navigation.PopAsync();
-                    await Navigation.PushAsync(new vtornik());
-                    break;
-            }
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new voscresenie());
+        }
 
-            switch (btn.Text)
-            {
-                case "Чт.":
-                    await Navigation.PopAsync();
-                    await Navigation.PushAsync(new vtornik());
-                    break;
-            }
+        private async void SbBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new subbota());
+        }
 
-            switch (btn.Text)
-            {
-                case "Пт.":
-                    await Navigation.PopAsync();
-                    await Navigation.PushAsync(new vtornik());
-                    break;
-            }
+        private async void RedBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new pjatnitsa());
+        }
 
-            switch (btn.Text)
-            {
-                case "Сб.":
-                    await Navigation.PopAsync();
-                    await Navigation.PushAsync(new vtornik());
-                    break;
-            }
+        private async void NeljBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new chetverk());
+        }
 
-            switch (btn.Text)
-            {
-                case "Вс.":
-                    await Navigation.PopAsync();
-                    await Navigation.PushAsync(new vtornik());
-                    break;
-            }
+        private async void KolmBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new sreda());
+        }
+
+        private async void TeisBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new vtornik());
+        }
+
+        private async void EsmBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new esmasp());
         }
     }
 }

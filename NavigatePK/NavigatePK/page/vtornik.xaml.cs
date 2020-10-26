@@ -20,8 +20,16 @@ namespace NavigatePK.page
             ListView lista = new ListView();
             // определяем источник данных
             lista.ItemsSource = taska;
+
+            Button bbk = new Button { Text = "Вперед" };
+            bbk.Clicked += Bbk_Clicked;
+
+            Button bb = new Button { Text = "Назад" };
+            bb.Clicked += Bb_Clicked;
+
+
             lista.ItemSelected += Lista_ItemSelected;
-            Content = new StackLayout { Children = { lista } };
+            Content = new StackLayout { Children = { lista, bbk, bb } };
         }
 
         string vremja;
@@ -64,22 +72,10 @@ namespace NavigatePK.page
             }
 
             await DisplayAlert(text, vremja, "Продолжить");
-
-
-            StackLayout vtornikv = new StackLayout();
-
-            Button bb = new Button { Text = "Назад" };
-            bb.Clicked += Bb_Clicked;
-            vtornikv.Children.Add(bb);
-
-            Button bbk = new Button { Text = "Назад" };
-            bbk.Clicked += Bbk_Clicked;
-            vtornikv.Children.Add(bbk);
         }
 
         private async void Bbk_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
             await Navigation.PushAsync(new sreda());
         }
 
